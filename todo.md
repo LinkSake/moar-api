@@ -1,7 +1,6 @@
 # TO-DO
 
 - [x] Enable CORS
-- [] Add Postgre connection
-- [] Add Redis connection
-- [] Dockerize the app
+- [x] Add Postgre connection
+- [x] Dockerize the app
 - [] Create resources for project and task
