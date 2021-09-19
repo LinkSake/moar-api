@@ -9,7 +9,7 @@ services:
       - 5432:5432
     volumes:
       - 'dbdata:/var/lib/postgresql/data'
-  web:
+  api:
     build: .
     image: moar-api
     container_name: moar-api

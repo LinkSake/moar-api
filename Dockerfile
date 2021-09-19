@@ -14,8 +14,6 @@ WORKDIR /moar-api
 
 ENV BUNDLE_PATH /gems
 
-COPY package.json yarn.lock /moar-api/
-RUN yarn install
 COPY Gemfile Gemfile.lock /moar-api/
 RUN bundle install
 
