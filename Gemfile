@@ -17,6 +17,8 @@ gem 'redis-rails', '~> 5.0', '>= 5.0.2'
 gem 'redis-namespace', '~> 1.8', '>= 1.8.1'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Use Kaminari for pagination
+gem 'kaminari', '~> 0.17.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
