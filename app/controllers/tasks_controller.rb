@@ -3,8 +3,9 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.all
-
+    project_id = params[:project_id]
+    
+    @tasks = Task.where(project_id: project_id)
     render json: @tasks
   end
 
