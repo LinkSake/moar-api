@@ -3,4 +3,8 @@
 - [x] Enable CORS
 - [x] Add Postgre connection
 - [x] Dockerize the app
-- [] Create resources for project and task
+- [x] Create resources for project and task
+- [] Create project report
+- [] Add pagination
+- [] Add cache
+- [] Update README

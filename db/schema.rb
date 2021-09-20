@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2021_09_20_174121) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.boolean "running", default: false
-    t.date "start"
-    t.date "end"
+    t.datetime "start"
+    t.datetime "end"
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

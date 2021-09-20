@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   def index
     project_id = params[:project_id]
-    
+
     @tasks = Task.where(project_id: project_id)
     render json: @tasks
   end
@@ -37,6 +37,30 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   def destroy
     @task.destroy
+  end
+
+  # GET /tasks/1/start
+  def start
+    @project = Project.find(params[:project_id])
+    @task = Task.find(params[:task_id])
+    if @project.tasks.where(running: true).count == 0
+      @task.update(running: true, start: DateTime.now.strftime("%Y-%m-%d %H:%M:%S"))
+      render json: @task
+    else
+      render json: {error: "There is already a running task in this project"}, status: :unprocessable_entity
+    end
+  end
+
+  # GET /tasks/1/stop
+  def stop
+    @project = Project.find(params[:project_id])
+    @task = Task.find(params[:task_id])
+    if @project.tasks.where(running: true).count == 1
+      @task.update(running: false, end: DateTime.now.strftime("%Y-%m-%d %H:%M:%S"))
+      render json: @task
+    else
+      render json: {error: "There is not a task running in this project"}, status: :unprocessable_entity
+    end
   end
 
   private
