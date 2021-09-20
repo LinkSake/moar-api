@@ -6,7 +6,9 @@ class TasksController < ApplicationController
     project_id = params[:project_id]
 
     @tasks = Task.where(project_id: project_id)
-    render json: @tasks
+    task_paginated = paginate 'tasks', @tasks, params[:page]
+    
+    render json: task_paginated
   end
 
   # GET /tasks/1
